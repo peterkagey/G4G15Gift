@@ -2,7 +2,10 @@ from supporting.A338031_list import *
 import svg
 import random
 import math
+import os
 from supporting.get_oeis import *
+
+py_dir = os.path.dirname(os.path.realpath(__file__))
 
 class ParityTriangleDrawer():
   def __init__(self, sequence_data, rows=None):
@@ -88,14 +91,14 @@ class ParityTriangleDrawer():
 elements = []
 
 sequences = sorted([
-  (303513, 16),
-  (73266, 16),
-  (132393, 16),
-  (26807, 16),
-  (298187, 16),
-  (222946, 16),
-  (65600, 16),
-  (326410, 16)
+  (174097, 16),
+  (176665, 16),
+  (322115, 16),
+  (135313, 16),
+  (186370, 16),
+  (295551, 16),
+  (131338, 16),
+  ( 28338, 16)
 ])
 
 HEIGHT = 816
@@ -118,38 +121,11 @@ canvas = svg.SVG(
 )
 
 file_name = "_".join(a_numbers)
-with open("/Users/peter/Programming/MathArt/AxiDrawV3/G4G/assets/" + file_name + ".svg", "w") as f:
-  f.write(canvas.as_str())
 
-# svg.Circle(
-      #   stroke_dasharray=1,
-      #   stroke="red",
-      #   fill="none",
-      #   cx=x,
-      #   cy=y,
-      #   r=5
-      # ),
-      # svg.Rect(
-      #   stroke_dasharray=1,
-      #   stroke="green",
-      #   fill="none",
-      #   x=x,
-      #   y=y,
-      #   width=width,
-      #   height=width*math.sqrt(3)/2
-      # ),
-      # svg.Rect(
-      #   stroke_dasharray=1,
-      #   stroke="magenta",
-      #   fill="none",
-      #   x=x,
-      #   y=y+width*math.sqrt(3)/2,
-      #   width=width,
-      #   height=width/3
-      # ),
-      # svg.Polygon(
-      #   stroke_dasharray=1,
-      #   stroke="blue",
-      #   fill="none",
-      #   points=[(x3,y3),(x2,y2),(x1,y1)]
-      # ),
+# The directory where this file is saved.
+py_dir = os.path.dirname(os.path.realpath(__file__))
+filename = "assets/" + file_name + ".svg"
+file_path = os.path.join(py_dir, filename)
+
+with open(file_path, "w") as f:
+  f.write(canvas.as_str())

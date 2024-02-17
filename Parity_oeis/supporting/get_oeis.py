@@ -1,8 +1,11 @@
 import urllib.request
+import os
 from tinydb import TinyDB, Query
 
 class OEISBFile():
-  DB = TinyDB('/Users/peter/Programming/MathArt/AxiDrawV3/G4G/OEIS_parsing/db.json')
+  py_dir = os.path.dirname(os.path.realpath(__file__))
+  file_path = os.path.join(py_dir, "db.json")
+  DB = TinyDB(file_path)
 
   def __init__(self, a_number):
     self.a_number = a_number
